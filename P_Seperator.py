@@ -159,6 +159,8 @@ class CSVWriter:
         rows = []
         for theme_number, keys in themes.items():
             key_stroke = keys.get("KYBG", {}).get("s_gradient_colors", (None, None))
+            if not key_stroke:
+                key_stroke = (f"0xFFFFFF", f"0xFFFFFF")
             print("key_stroke", key_stroke)
             rows.append({
                 "ID": f"KBB_{theme_number}",
